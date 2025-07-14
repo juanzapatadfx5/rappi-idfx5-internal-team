@@ -1,13 +1,6 @@
 version: 1.0
-runtime: docker
 
-# Directorio donde está tu Dockerfile (en este caso raíz del repo)
 build:
   docker:
     filePath: ./Dockerfile
     buildArgs: {}
-
-# Opcional: establecer variables de entorno desde aquí (puedes sobreescribir en consola App Runner)
-# environment:
-#   X_APPLICATION_ID: "Rappi"
-#   PORT: "8080"
