@@ -1,8 +1,16 @@
 version: 1.0
+runtime: image
 build:
   commands:
-    - echo "Building Docker image..."
-    - docker build -t ${AWS_APP_RUNNER_SERVICE_NAME} .
+    - echo "Building container image..."
+  artifacts:
+    baseDirectory: /
+    files:
+      - Dockerfile
+      - main.py
+      - requirements.txt
+      - env.yaml
+      - "**/*"
 run:
-  runtime: python3
-  command: docker run -p 8080:8080 ${AWS_APP_RUNNER_SERVICE_NAME}
+  runtime-version: latest
+  command: docker run --rm -p 8080:8080 ${AWS_APP_RUNNER_SERVICE_NAME}
