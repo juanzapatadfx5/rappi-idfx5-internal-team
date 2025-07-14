@@ -1,6 +1,8 @@
 version: 1.0
-
 build:
-  docker:
-    filePath: ./Dockerfile
-    buildArgs: {}
+  commands:
+    - echo "Building Docker image..."
+    - docker build -t ${AWS_APP_RUNNER_SERVICE_NAME} .
+run:
+  runtime: python3
+  command: docker run -p 8080:8080 ${AWS_APP_RUNNER_SERVICE_NAME}
