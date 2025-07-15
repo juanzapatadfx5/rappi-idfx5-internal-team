@@ -10,3 +10,18 @@ run:
   command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
     port: 8000
+  environment:
+    - name: DOMAIN_ID
+      value: "7738eaa1-fb5b-47c2-9652-56d2e152a295"
+    - name: DOMAIN_CUSTOMER_PROFILE_ID
+      value: "dfx5-connect-rappi-customer-profiles-domain-dev"
+    - name: TEMPLATE_CASE_ID
+      value: "4d2a4269-25f7-4f0d-a0c5-7580db7639b3"
+    - name: CONNECT_PROFILE_ARN
+      value: "arn:aws:profiles:us-east-1:402289717087:domains/dfx5-connect-rappi-customer-profiles-domain-dev/profiles/"
+    - name: DYNAMODB_TABLE_NAME
+      value: "no_needed_for_testing"
+    - name: SECRET_NAME
+      value: "no_needed_for_testing"
+    - name: RAPPI_MICROSERVICES_BASE_URL
+      value: "no_needed_for_testing"
