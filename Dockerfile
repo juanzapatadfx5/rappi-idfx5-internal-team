@@ -1,23 +1,15 @@
-# Use a lightweight Python base image
-FROM python:3.9-slim-buster
+FROM python:3.9-slim
 
-# Set the working directory in the container
-# This will be /app as per App Runner's default behavior,
-# and your app code will be in /app/app
-WORKDIR /app
+WORKDIR /code
 
-# Copy the requirements file and install dependencies
-# Ensure requirements.txt is at the root of your build context
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire application code.
-# Given your local structure (app/main.py), this will place it at /app/app/main.py
-COPY . .
+# Copy the entire project for proper imports
+COPY . /code
 
-# Expose the port FastAPI will run on
+# Puerto en el que se ejecutará la aplicación
 EXPOSE 8000
 
-# Command to run the FastAPI application with Uvicorn
-# We explicitly tell Uvicorn to look inside the 'app' directory for 'main:app'
+# Comando para ejecutar la aplicación
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
