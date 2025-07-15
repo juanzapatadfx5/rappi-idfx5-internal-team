@@ -1,16 +1,10 @@
 version: 1.0
-runtime: image
+runtime: python3 # Or specify a specific version like python3.9
 build:
   commands:
-    - echo "Building container image..."
-  artifacts:
-    baseDirectory: /
-    files:
-      - Dockerfile
-      - main.py
-      - requirements.txt
-      - env.yaml
-      - "**/*"
+    build:
+      - pip install -r requirements.txt
 run:
-  runtime-version: latest
-  command: docker run --rm -p 8080:8080 ${AWS_APP_RUNNER_SERVICE_NAME}
+  command: uvicorn main:app --host 0.0.0.0 --port 8000
+  network:
+    port: 8000
