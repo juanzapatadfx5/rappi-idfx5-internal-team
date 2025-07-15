@@ -1,7 +1,9 @@
 from fastapi import FastAPI, Request, Response, HTTPException
 import os
 
-APP_ID = os.getenv("X_APPLICATION_ID")        
+#APP_ID = os.getenv("X_APPLICATION_ID")        
+APP_ID = "X_APPLICATION_ID"
+
 if not APP_ID:
     raise RuntimeError("Falta X_APPLICATION_ID")
 
