@@ -1,8 +1,6 @@
 version: 1.0
 runtime: python3
-SourceConfiguration:
-      CodeRepository:
-        SourceDirectory: ./app 
+
 build:
   commands:
     build:
