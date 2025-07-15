@@ -1,5 +1,8 @@
 version: 1.0
-runtime: python3 # Or specify a specific version like python3.9
+runtime: python3
+SourceConfiguration:
+      CodeRepository:
+        SourceDirectory: ./app 
 build:
   commands:
     build:
