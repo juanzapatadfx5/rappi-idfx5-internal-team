@@ -6,6 +6,7 @@ build:
     build:
       - pip install -r requirements.txt
 run:
-  command: uvicorn main:app --host 0.0.0.0 --port 8000
+  # CRÍTICO: Cambiar 'main:app' a 'app.main:app' para reflejar la estructura de directorios
+  command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
     port: 8000
