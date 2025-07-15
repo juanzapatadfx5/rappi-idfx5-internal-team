@@ -6,11 +6,10 @@ build:
     build:
       - pip install -r requirements.txt
 run:
-  # CRÍTICO: Cambiar 'main:app' a 'app.main:app' para reflejar la estructura de directorios
   command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
     port: 8000
-  environment:
+  env:
     - name: DOMAIN_ID
       value: "7738eaa1-fb5b-47c2-9652-56d2e152a295"
     - name: DOMAIN_CUSTOMER_PROFILE_ID
